@@ -2,7 +2,8 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 33
-
+    buildToolsVersion "33.0.2"
+    
     defaultConfig {
         applicationId "com.kisa.kakaoautosender"
         minSdkVersion 21
@@ -10,7 +11,7 @@ android {
         versionCode 1
         versionName "1.0"
     }
-
+    
     buildTypes {
         release {
             minifyEnabled false
@@ -20,10 +21,16 @@ android {
             debuggable true
         }
     }
-
+    
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    
+    packagingOptions {
+        resources {
+            excludes += ['META-INF/DEPENDENCIES']
+        }
     }
 }
 
